@@ -18,14 +18,14 @@ public class RandomNumber {
         return number;
     }
 
-    boolean isLessEqualThan(int inputNum) {
+    public boolean isLessEqualThan(int inputNum) {
         if (number <= inputNum){
             return true;
         }
         return false;
     }
 
-    boolean isGreaterEqualThan(int inputNum) {
+    public boolean isGreaterEqualThan(int inputNum) {
         if (number >= inputNum){
             return true;
         }
