@@ -4,6 +4,7 @@ import util.RandomNumber;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Cars {
     private ArrayList<Car> cars = new ArrayList<>();
@@ -37,12 +38,11 @@ public class Cars {
     public void race() {
         for(int i=0; i < cars.size(); i++){
             Car car = cars.get(i);
-            car.move(new RandomNumber(0));
-            printCar(car);
+            car.move(RandomNumber.random());
         }
     }
 
-    private void printCar(Car car){
-        System.out.println(car);
+    public List<Car> getCars(){
+        return cars;
     }
 }

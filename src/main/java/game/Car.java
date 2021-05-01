@@ -3,7 +3,7 @@ package game;
 import util.RandomNumber;
 
 public class Car implements Comparable<Car>{
-    public static int MOVING_INDICATOR = 4;
+    public static int MOVING_INDICATOR = 3;
 
     private String name;
     private int position;
@@ -18,7 +18,7 @@ public class Car implements Comparable<Car>{
     }
 
     public boolean move(RandomNumber randomNumber) {
-        if(randomNumber.isGreaterEqualThan(MOVING_INDICATOR)){
+        if(randomNumber.isGreaterThan(MOVING_INDICATOR)){
             forward();
             return true;
         }
@@ -31,6 +31,10 @@ public class Car implements Comparable<Car>{
 
     public int getPosition(){
         return position;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public boolean isBehindPosition(Car car){

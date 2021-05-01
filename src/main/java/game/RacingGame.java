@@ -1,6 +1,5 @@
 package game;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
@@ -9,8 +8,8 @@ public class RacingGame {
     private Cars cars = new Cars();
 
     public RacingGame(List<String> carNames , int trialCount){
-        this.trialCount = trialCount;
         this.initialize(carNames);
+        this.trialCount = trialCount;
     }
 
     public void initialize(List<String> carNames){
@@ -20,13 +19,31 @@ public class RacingGame {
     }
 
     public void play(){
+        cars.race();
         trialCount--;
     }
 
     public boolean isOver(){
-        if (trialCount == 0){
+        if (trialCount <= 0){
             return true;
         }
         return false;
+    }
+
+    public void printAllCars(){
+        for (Car car: cars.getCars()) {
+            System.out.println(car);
+        }
+        System.out.println();
+    }
+
+    public void displayWinners(){
+        StringBuilder builder = new StringBuilder();
+        for (Car car: cars.winner()) {
+            builder.append(car.getName());
+        }
+
+        System.out.println(String.join(",",builder.toString())+"가 최종 우승했습니다.");
+
     }
 }

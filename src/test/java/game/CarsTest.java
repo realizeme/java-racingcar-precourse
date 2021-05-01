@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import util.RandomNumber;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarsTest {
@@ -42,4 +44,20 @@ public class CarsTest {
         assertThat(cars.winner()).contains(pobi, crong);
         assertThat(cars.winner()).doesNotContain(honux);
     }
+
+
+    @Test
+    @DisplayName("모든 차량")
+    public void 모든_차량(){
+        Cars cars = new Cars();
+        cars.add(new Car("pobi"));
+        cars.add(new Car("crong"));
+        cars.add(new Car("honux"));
+
+        List<Car> carList = cars.getCars();
+
+        assertThat(carList.size()).isEqualTo(3);
+    }
+
+
 }

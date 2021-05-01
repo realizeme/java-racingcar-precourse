@@ -26,5 +26,4 @@ public class RacingGameTest {
         game.play();
         assertThat(game.isOver()).isTrue();
     }
-
 }
