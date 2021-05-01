@@ -23,4 +23,28 @@ public class CarTest {
         assertThat(car.move(new RandomNumber(4))).isTrue();
         assertThat(car.move(new RandomNumber(9))).isTrue();
     }
+
+    @Test
+    @DisplayName("앞서 있는 차와 비교")
+    public void 앞서_있는_차와_비교(){
+        Car car1 = new Car("1번 자동차", 1);
+        Car car2 = new Car("2번 자동차", 0);
+        assertThat(car1.isFrontPosition(car2)).isTrue();
+    }
+
+    @Test
+    @DisplayName("뒤에 있는 차와 비교")
+    public void 뒤에_있는_차와_비교(){
+        Car car1 = new Car("1번 자동차", 0);
+        Car car2 = new Car("2번 자동차", 1);
+        assertThat(car1.isBehindPosition(car2)).isTrue();
+    }
+
+    @Test
+    @DisplayName("동일한 위치 차 비교")
+    public void 동일한_위치_차_비교(){
+        Car car1 = new Car("1번 자동차", 1);
+        Car car2 = new Car("2번 자동차", 1);
+        assertThat(car1.isSamePosition(car2)).isTrue();
+    }
 }

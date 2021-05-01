@@ -1,19 +1,22 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGame {
 
     private int trialCount = 0;
-    private ArrayList<Car> cars = new ArrayList<Car>();
+    private Cars cars = new Cars();
 
-    public RacingGame(ArrayList<Car> cars ,int trialCount){
-        this.cars = cars;
+    public RacingGame(List<String> carNames , int trialCount){
         this.trialCount = trialCount;
+        this.initialize(carNames);
     }
 
-    public int countCars() {
-        return cars.size();
+    public void initialize(List<String> carNames){
+        for (int i =0; i < carNames.size(); i++) {
+            cars.add(new Car(carNames.get(i)));
+        }
     }
 
     public void play(){
