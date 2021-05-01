@@ -13,6 +13,10 @@ public class Car {
         this.position = position;
     }
 
+    public Car(String name){
+        this(name, 0);
+    }
+
     public boolean move(RandomNumber randomNumber) {
         if(randomNumber.isGreaterEqualThan(MOVING_INDCATTOR)){
             forward();
