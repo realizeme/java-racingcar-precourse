@@ -31,7 +31,7 @@ public class RacingGameTest {
     @DisplayName("레이싱_중간_결과")
     public void 레이싱_중간_결과(){
         RacingGame game = new RacingGame(Arrays.asList("cars", "crong"), 2);
-        List<Car> carList = game.play();
+        List<RacingResult> carList = game.play();
         assertThat(carList.size()).isEqualTo(2);
     }
 }

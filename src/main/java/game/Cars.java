@@ -35,11 +35,19 @@ public class Cars {
         return Collections.max(cars);
     }
 
-    public List<Car> race() {
+    public List<RacingResult> race() {
         for(int i=0; i < cars.size(); i++){
             Car car = cars.get(i);
             car.move(RandomNumber.random());
         }
-        return cars;
+        return convert();
+    }
+
+    private List<RacingResult> convert(){
+        List<RacingResult> result = new ArrayList<>();
+        for (Car car: cars){
+            result.add(RacingResult.of(car));
+        }
+        return result;
     }
 }

@@ -18,7 +18,7 @@ public class RacingGame {
         }
     }
 
-    public List<Car> play(){
+    public List<RacingResult> play(){
         trialCount--;
         return cars.race();
     }

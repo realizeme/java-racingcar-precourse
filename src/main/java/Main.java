@@ -1,7 +1,4 @@
-import game.Car;
-import game.Cars;
-import game.RacingGame;
-import game.Winners;
+import game.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,8 +29,8 @@ public class Main {
         return Integer.valueOf(count);
     }
 
-    public static void displayRacingResult(List<Car> cars){
-        for (Car car: cars) {
+    public static void displayRacingResult(List< RacingResult > cars){
+        for (RacingResult car: cars) {
             System.out.println(car);
         }
         System.out.println();
