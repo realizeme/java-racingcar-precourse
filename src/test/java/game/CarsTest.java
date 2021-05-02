@@ -23,9 +23,9 @@ public class CarsTest {
         cars.add(crong);
         cars.add(honux);
         cars.race();
+        Winners winners = cars.winner();
 
-        assertThat(cars.winner()).contains(pobi);
-        assertThat(cars.winner()).doesNotContain(crong,honux);
+        assertThat(winners.getWinnerNames()).contains(pobi.getName());
     }
 
     @Test
@@ -39,10 +39,9 @@ public class CarsTest {
         cars.add(pobi);
         cars.add(crong);
         cars.add(honux);
-        cars.race();
+        Winners winners= cars.winner();
 
-        assertThat(cars.winner()).contains(pobi, crong);
-        assertThat(cars.winner()).doesNotContain(honux);
+        assertThat(winners.getWinnerNames()).contains(pobi.getName(), crong.getName());
     }
 
 
@@ -50,13 +49,13 @@ public class CarsTest {
     @DisplayName("모든 차량")
     public void 모든_차량(){
         Cars cars = new Cars();
-        cars.add(new Car("pobi"));
-        cars.add(new Car("crong"));
-        cars.add(new Car("honux"));
+        cars.add(new Car("pobi",1));
+        cars.add(new Car("crong", 1));
+        cars.add(new Car("honux",1));
 
-        List<Car> carList = cars.getCars();
+        Winners winners = cars.winner();
 
-        assertThat(carList.size()).isEqualTo(3);
+        assertThat(winners.size()).isEqualTo(3);
     }
 
 

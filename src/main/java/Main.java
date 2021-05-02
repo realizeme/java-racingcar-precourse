@@ -1,4 +1,7 @@
+import game.Car;
+import game.Cars;
 import game.RacingGame;
+import game.Winners;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,10 +15,9 @@ public class Main {
         Integer trialCount = inputTrialCount();
         RacingGame game = new RacingGame(racerList, trialCount);
         while(!game.isOver()){
-            game.play();
-            game.printAllCars();
+            displayRacingResult(game.play());
         }
-        game.displayWinners();
+        displayWinners(game.winners());
     }
 
     private static List<String> inputRacer(){
@@ -30,5 +32,15 @@ public class Main {
         return Integer.valueOf(count);
     }
 
+    public static void displayRacingResult(List<Car> cars){
+        for (Car car: cars) {
+            System.out.println(car);
+        }
+        System.out.println();
+    }
+
+    public static void displayWinners(Winners winners){
+        System.out.println(winners+"가 최종 우승했습니다.");
+    }
 
 }

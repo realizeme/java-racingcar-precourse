@@ -13,8 +13,8 @@ public class Cars {
         cars.add(car);
     }
 
-    public ArrayList< Car > winner() {
-        return getSamePosition(max());
+    public Winners winner() {
+        return new Winners(getSamePosition(max()));
     }
 
     private ArrayList< Car > getSamePosition(Car maxPosCar) {
@@ -35,14 +35,11 @@ public class Cars {
         return Collections.max(cars);
     }
 
-    public void race() {
+    public List<Car> race() {
         for(int i=0; i < cars.size(); i++){
             Car car = cars.get(i);
             car.move(RandomNumber.random());
         }
-    }
-
-    public List<Car> getCars(){
         return cars;
     }
 }

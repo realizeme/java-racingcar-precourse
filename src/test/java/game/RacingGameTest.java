@@ -1,10 +1,10 @@
 package game;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
+
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,5 +25,13 @@ public class RacingGameTest {
         game.play();
         game.play();
         assertThat(game.isOver()).isTrue();
+    }
+
+    @Test
+    @DisplayName("레이싱_중간_결과")
+    public void 레이싱_중간_결과(){
+        RacingGame game = new RacingGame(Arrays.asList("cars", "crong"), 2);
+        List<Car> carList = game.play();
+        assertThat(carList.size()).isEqualTo(2);
     }
 }

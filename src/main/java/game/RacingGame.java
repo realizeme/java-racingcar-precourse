@@ -18,9 +18,9 @@ public class RacingGame {
         }
     }
 
-    public void play(){
-        cars.race();
+    public List<Car> play(){
         trialCount--;
+        return cars.race();
     }
 
     public boolean isOver(){
@@ -30,20 +30,9 @@ public class RacingGame {
         return false;
     }
 
-    public void printAllCars(){
-        for (Car car: cars.getCars()) {
-            System.out.println(car);
-        }
-        System.out.println();
+    public Winners winners(){
+        return cars.winner();
     }
 
-    public void displayWinners(){
-        StringBuilder builder = new StringBuilder();
-        for (Car car: cars.winner()) {
-            builder.append(car.getName());
-        }
 
-        System.out.println(String.join(",",builder.toString())+"가 최종 우승했습니다.");
-
-    }
 }
